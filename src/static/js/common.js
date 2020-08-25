@@ -1,3 +1,5 @@
-$(document).ready(function(){
-    alert(1);
+$(document).ready(function () {
+    $('.search-desctop').hover(function () {
+        $(this).toggleClass('is-active');
+    });
 });
