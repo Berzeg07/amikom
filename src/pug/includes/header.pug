@@ -5,22 +5,22 @@ header.header
                 .logo
                     img(src="img/logo.png")
             .column
-                .info-block.info-block_phone
+                .info-block.info-block_phone.header-top__item
                     .info-block__item
                         a(href="tel:89292923239").phone-link 8 929 292 3239 
                     .info-block__item
                         a(href="#").info-block__article Заказать звонок
 
-                .info-block.info-block_email
+                .info-block.info-block_email.header-top__item
                     .info-block__item
                         a(href="mailto:info@ami-com.ru").email-link info@ami-com.ru
                     .info-block__item
                         a(href="#").info-block__article Написать письмо
 
-                .info-block.info-block_subscription
+                .info-block.info-block_subscription.header-top__item
                     a(href="#").info-block__article Подписаться <br>на новости
 
-                a(href="#").login Войти
+                a(href="#").login.header-top__item Войти
 
     .header__bottom
         .container
@@ -56,6 +56,11 @@ header.header
                     li
                         a(href="#") Другие разделы
 
+                .burger
+                    span
+                    span
+                    span
+
             .column
                 ul.main-nav
                     li
@@ -88,7 +93,37 @@ header.header
                             b 20 000 
                             |руб
 
+    .header__panel-mob.container
+        form(action="#" method="POST").search-mob
+            input(type="text" placeholder="Введите слово и нажмите enter")
 
+        .user-info.user-info_mob
+            a(href="#").favor.user-info__link
+                span.count 2
+
+            a(href="#").comparison.user-info__link
+                span.count 2
+
+            .basket-block
+                a(href="#").basket.user-info__link
+                    span.count 3
+
+                span.basket-price 
+                    b 20 000 
+                    |руб
+
+    .dropdownmenu
+        ul.mob-nav
+            li
+                a(href="#") О нас
+            li
+                a(href="#") FAQ
+            li
+                a(href="#") Сервисы
+            li
+                a(href="#") Контакты
+
+        a(href="#").download-price Прайс
 
 
 
