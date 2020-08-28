@@ -12,6 +12,22 @@ $(document).ready(function () {
         $('.dropdownmenu').toggleClass('is-active');
     });
 
+    $(".dropdownmenu__list>li").click(function (e) {
+        console.log(e.target);
+        if (e.target.tagName == 'LI') {
+            var $this = $(this);
+            var elem = $(this).find('.dropdownmenu__inner');
+
+            if (!$this.hasClass("is-active")) {
+                $(".dropdownmenu__inner").slideUp();
+                $(".dropdownmenu__list>li").removeClass("is-active");
+            }
+
+            $this.toggleClass("is-active");
+            elem.slideToggle();
+        }
+    });
+
     var bannerSlider = new Swiper('.banner-slider', {
         slidesPerView: 1,
         spaceBetween: 32,
