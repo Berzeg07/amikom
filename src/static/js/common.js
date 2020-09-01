@@ -12,6 +12,17 @@ $(document).ready(function () {
         $('.dropdownmenu').toggleClass('is-active');
     });
 
+    $(".more-btn").click(function () {
+        var $this = $(this);
+        var elem = $(this).next().slideToggle();
+        $this.toggleClass("is-active");
+    });
+
+    $('.catalog-list__links-top>li').hover(function () {
+        $('.catalog-list__hidden').slideUp();
+        $(".more-btn").removeClass('is-active');
+    });
+
     $(".dropdownmenu__list>li").click(function (e) {
         console.log(e.target);
         if (e.target.tagName == 'LI') {
@@ -26,6 +37,57 @@ $(document).ready(function () {
             $this.toggleClass("is-active");
             elem.slideToggle();
         }
+    });
+
+    function showStickyMenu() {
+        $(this).toggleClass('is-active');
+        $('.dropmenu-main').fadeToggle();
+    }
+
+    var flag = true;
+
+    function stickyMenu(scrollTopEl, elPosition, elHeight) {
+        if (scrollTopEl >= elPosition.top) {
+            $('.header').css('height', elHeight + 'px');
+            $('.header__bottom-wrap').addClass('stickytop');
+            if (flag) {
+                flag = false;
+                $('.dropmenu-main').fadeOut();
+            }
+            $('.dropdownmenu').addClass('is-sticky');
+        }
+        else {
+            $('.header__bottom-wrap').removeClass('stickytop');
+            $('.header').removeAttr('style');
+            $('.dropdownmenu').removeClass('is-sticky');
+            flag = true;
+            $('.dropmenu-main').fadeIn();
+            $('.catalog-show').removeClass('is-active');
+        }
+    }
+
+    $(function () {
+        var headerHeight = $(".header").height();
+        var position = $(".header__bottom").offset();
+        var windwoTop = $(window).scrollTop();
+
+        stickyMenu(windwoTop, position, headerHeight);
+
+        if (windwoTop >= position.top) {
+            var el = document.querySelector('.catalog-show');
+            el.addEventListener('click', showStickyMenu);
+        }
+
+        $(window).scroll(function () {
+            var el = document.querySelector('.catalog-show');
+            var scrollTopDinamic = $(this).scrollTop();
+            stickyMenu(scrollTopDinamic, position, headerHeight);
+            if (scrollTopDinamic >= position.top) {
+                el.addEventListener('click', showStickyMenu);
+            } else {
+                el.removeEventListener('click', showStickyMenu);
+            }
+        });
     });
 
     var bannerSlider = new Swiper('.banner-slider', {
