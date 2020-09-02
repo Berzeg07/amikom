@@ -34,6 +34,24 @@
                         span
                         span
 
+                    .user-info.user-info_mob
+                        a(href="#").favor.user-info__link
+                            span.count 2
+
+                        a(href="#").comparison.user-info__link
+                            span.count 2
+
+                        .basket-block
+                            a(href="#").basket.user-info__link
+                                span.count 3
+
+                            span.basket-price 
+                                b 20 000 
+                                |руб
+
+                    form(action="#" method="POST").search-desctop.search-mobile
+                        input(type="text" placeholder="Введите слово и нажмите enter")
+
                 .column
                     ul.main-nav
                         li
@@ -47,10 +65,10 @@
 
                     a(href="#").download-price Прайс
 
-                .column
                     form(action="#" method="POST").search-desctop
                         input(type="text" placeholder="Введите слово и нажмите enter")
 
+                .column
                     .user-info
                         a(href="#").favor.user-info__link
                             span.count 2
@@ -1803,24 +1821,24 @@
                         li
                             a(href="#") Тест 6
 
-    .header__panel-mob.container
-        form(action="#" method="POST").search-mob
-            input(type="text" placeholder="Введите слово и нажмите enter")
+    //- .header__panel-mob.container
+    //-     form(action="#" method="POST").search-mob
+    //-         input(type="text" placeholder="Введите слово и нажмите enter")
 
-        .user-info.user-info_mob
-            a(href="#").favor.user-info__link
-                span.count 2
+        //- .user-info.user-info_mob
+        //-     a(href="#").favor.user-info__link
+        //-         span.count 2
 
-            a(href="#").comparison.user-info__link
-                span.count 2
+        //-     a(href="#").comparison.user-info__link
+        //-         span.count 2
 
-            .basket-block
-                a(href="#").basket.user-info__link
-                    span.count 3
+        //-     .basket-block
+        //-         a(href="#").basket.user-info__link
+        //-             span.count 3
 
-                span.basket-price 
-                    b 20 000 
-                    |руб
+        //-         span.basket-price 
+        //-             b 20 000 
+        //-             |руб
 
 
 
