@@ -104,13 +104,63 @@ $(document).ready(function () {
         },
     });
 
+    var catChooseSale = new Swiper('.cat-choose_sale', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next-chs',
+            prevEl: '.swiper-button-prev-chs',
+        },
+    });
+
+    catChooseSale.on('slideChangeTransitionEnd', function () {
+        var tabData = $('.cat-choose_sale .swiper-slide-active .cat-choose__item').attr('data-href');
+        $('.sale-slider_tab').not(tabData).css({ 'display': 'none' });
+        $(tabData).fadeIn(400);
+    });
+
+    var newsTab = new Swiper('.news-tab', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next-nw',
+            prevEl: '.swiper-button-prev-nw',
+        },
+    });
+
+    newsTab.on('slideChangeTransitionEnd', function () {
+        var tabData = $('.news-tab .swiper-slide-active .cat-choose__item').attr('data-href');
+        $('.news-slider_tab').not(tabData).css({ 'display': 'none' });
+        $(tabData).fadeIn(400);
+    });
+
+    var leads = new Swiper('.lead-tab', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next-ld',
+            prevEl: '.swiper-button-prev-ld',
+        },
+    });
+
+    leads.on('slideChangeTransitionEnd', function () {
+        var tabData = $('.lead-tab .swiper-slide-active .cat-choose__item').attr('data-href');
+        $('.lead-slider_tab').not(tabData).css({ 'display': 'none' });
+        $(tabData).fadeIn(400);
+    });
+
     var contSlider = new Swiper('.sale-slider', {
         slidesPerView: 5,
         spaceBetween: 0,
         loop: true,
+        observer: true,
+        observeParents: true,
         navigation: {
-            nextEl: '.swiper-button-next-sale',
-            prevEl: '.swiper-button-prev-sale',
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         breakpoints: {
             499: {
@@ -136,9 +186,11 @@ $(document).ready(function () {
         slidesPerView: 5,
         spaceBetween: 0,
         loop: true,
+        observer: true,
+        observeParents: true,
         navigation: {
-            nextEl: '.swiper-button-next-news',
-            prevEl: '.swiper-button-prev-news',
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         breakpoints: {
             499: {
@@ -164,9 +216,11 @@ $(document).ready(function () {
         slidesPerView: 5,
         spaceBetween: 0,
         loop: true,
+        observer: true,
+        observeParents: true,
         navigation: {
-            nextEl: '.swiper-button-next-lead',
-            prevEl: '.swiper-button-prev-lead',
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         breakpoints: {
             499: {
